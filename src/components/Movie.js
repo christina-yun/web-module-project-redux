@@ -13,7 +13,6 @@ const Movie = (props) => {
     const handleDelete = () => {
         props.deleteMovie(movie.id)
         push('/movies/');
-
     }
     
     return(<div className="modal-page col">
