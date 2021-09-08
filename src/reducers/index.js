@@ -5,5 +5,5 @@ import favoritesReducer from './favoritesReducer';
 
 export default combineReducers({
     film: movieReducer,
-    favorites: favoritesReducer
+    faves: favoritesReducer
 });

@@ -1,5 +1,6 @@
+import data from './../data'
 const initialState = {
-    favorites: [],
+    favorites: data,
     displayFavorites: false
 }
 
