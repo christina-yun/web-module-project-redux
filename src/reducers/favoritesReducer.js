@@ -7,23 +7,22 @@ const initialState = {
 
 const favoritesReducer = (state = initialState, action) => {
     switch(action.type) {
-        case('ADD_FAVORITE'): {
+        case(ADD_FAVORITE): {
             return {
                 ...state,
                 favorites:[...state.favorites,
                 {
-                    id:Date.now(),
                     title:action.payload
                 }]
             };
         }
-        case('TOGGLE_FAVORITES'): {
+        case(TOGGLE_FAVORITES): {
             return {
                 ...state,
                 displayFavorites: !state.displayFavorites
             }
         }
-        case('REMOVE_FAVORITE'): {
+        case(REMOVE_FAVORITE): {
             return {
                 ...state,
                 favorites: []
