@@ -8,8 +8,6 @@ const AddMovieForm = (props) => {
     const { push } = useHistory();
 
     const [movie, setMovie] = useState(props.movies);
-
-    console.log('props', props.movies)
     
     const handleChange = (e) => {
         setMovie({
