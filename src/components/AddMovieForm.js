@@ -5,10 +5,9 @@ import { connect } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 
 const AddMovieForm = (props) => {
-    const { push } = useHistory();
+    const { push } = useHistory(); 
 
     const [movie, setMovie] = useState(props.movies);
-    
     const handleChange = (e) => {
         setMovie({
             ...movie,
@@ -67,7 +66,7 @@ const AddMovieForm = (props) => {
 
 const mapStateToProps = (state) => {
     return ({
-        movies:state.movies
+        movies:state.film.movies
     })
 }
 

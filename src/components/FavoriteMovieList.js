@@ -19,11 +19,13 @@ const FavoriteMovieList = (props) => {
                     push('/movies/');
                 }
                 return <div key={movie.id}>
-                    <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
+                    {/* <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}> */}
+                    <div className="btn btn-light savedButton">
                         {movie.title}
                         <span>
                             <span onClick={handleDelete} className="material-icons">remove_circle</span></span>
-                    </Link> 
+                    </div>
+                    {/* </Link>  */}
                 </div>
             })
         }

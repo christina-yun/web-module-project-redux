@@ -1,7 +1,7 @@
 import data from './../data'
 import { TOGGLE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from '../actions/favoritesActions';
 const initialState = {
-    favorites: data,
+    favorites: [],
     displayFavorites: false
 }
 
@@ -12,6 +12,7 @@ const favoritesReducer = (state = initialState, action) => {
                 ...state,
                 favorites:[...state.favorites,
                 {
+                    id:Date.now(),
                     title:action.payload
                 }]
             };
