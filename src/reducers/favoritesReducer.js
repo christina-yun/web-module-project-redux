@@ -1,4 +1,5 @@
 import data from './../data'
+import { TOGGLE_FAVORITES, ADD_FAVORITE, REMOVE_FAVORITE } from '../actions/favoritesActions';
 const initialState = {
     favorites: data,
     displayFavorites: false
@@ -16,8 +17,20 @@ const favoritesReducer = (state = initialState, action) => {
                 }]
             };
         }
-            default:
-                return state;
+        case('TOGGLE_FAVORITES'): {
+            return {
+                ...state,
+                displayFavorites: !state.displayFavorites
+            }
+        }
+        case('REMOVE_FAVORITE'): {
+            return {
+                ...state,
+                favorites: []
+            }
+        }
+        default:
+            return state;
     }
 };
 
