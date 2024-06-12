@@ -1,25 +1,41 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { removeFavorite } from '../actions/favoritesActions';
 
-import { Link } from 'react-router-dom';
-
+import { Link, useParams, useHistory } from 'react-router-dom';
 
 const FavoriteMovieList = (props) => {
-    const favorites = [];
-    
+    const { id } = useParams();
+    const { push } = useHistory();
+
+    // const movie = props.faves.favorites.find(movie=>movie.id===Number(id))
+
     return (<div className="col-xs savedContainer">
         <h5>Favorite Movies</h5>
         {
-            favorites.map(movie=>{
+            props.faves.favorites.map(movie=>{
+                const handleDelete = () => {
+                    props.removeFavorite(movie.id)
+                    push('/movies/');
+                }
                 return <div key={movie.id}>
-                    <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}>
+                    {/* <Link className="btn btn-light savedButton" to={`/movies/${movie.id}`}> */}
+                    <div className="btn btn-light savedButton">
                         {movie.title}
-                        <span><span class="material-icons">remove_circle</span></span>
-                    </Link> 
+                        <span>
+                            <span onClick={handleDelete} className="material-icons">remove_circle</span></span>
+                    </div>
+                    {/* </Link>  */}
                 </div>
             })
         }
     </div>);
 }
 
+const mapStateToProps = (state) => {
+    return ({
+        faves: state.faves
+    })
+}
 
-export default FavoriteMovieList;
+export default connect (mapStateToProps, { removeFavorite }) (FavoriteMovieList);
